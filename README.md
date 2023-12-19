@@ -1,12 +1,9 @@
-
 <h1 align="center">eCom Store Project</h1>
 <h2 align="center">Royal Rags</h2>
 
-
-
-
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Installation](#installation)
 - [Features](#features)
@@ -22,20 +19,15 @@
 
 ## Introduction
 
-This is a school project from Noroff School of Technology and Digital Media.  
-More specifically the JavaScript Frameworks - Course Assignment.  
-From my second (and last) year of their Frontend Developer Program.
-This project is a culmination of the React knowledge acquired during the course, applied to create a fully functional eCom store.  
+This project is a culmination of the React knowledge acquired during the Frontend Developer Program  
+at Noroff School of Technology and Digital Media, applied to create a fully functional eCom store.  
 As well as knowledge I have acquired from other sources like [Codecademy](https://www.codecademy.com) and [Udemy](https://www.udemy.com).
 
-
-[Noroff's GitHub](https://github.com/NoroffFEU)  
 [Noroff's Website](https://www.noroff.no/en)
 
 ## Installation
 
->Instructions on setting up the project locally will be added on project completion.
-
+> Instructions on setting up the project locally will be added on project completion.
 
 ## Features
 
@@ -69,26 +61,21 @@ As well as knowledge I have acquired from other sources like [Codecademy](https:
 - `<CartIcon>`: Displays the current cart count and acts as a button.
 - `<Footer>`: Footer content for the site.
 - `<ProductCard>`: Represents each product on the homepage.
->Component names are placeholders and subject to change. If changed this will be updated upon completion of the project.
-
+  > Component names are placeholders and subject to change. If changed this will be updated upon completion of the project.
 
 ## API Integration
 
-https://api.noroff.dev/api/v1/online-shop
->You can find individual items by appending a product ID at the end of the API URL  
->e.g. https://api.noroff.dev/api/v1/online-shop/f99cafd2-bd40-4694-8b33-a6052f36b435
-
 ## State Management
 
->Explanation of state management strategy will be added later
+> Explanation of state management strategy will be added later
 
 ## Routing
 
->Details on how React Router is implemented to navigate between pages will be added later.
+> Details on how React Router is implemented to navigate between pages will be added later.
 
 ## Validation
 
->Description of form validation logic on the Contact page will be added later.
+> Description of form validation logic on the Contact page will be added later.
 
 ## Deployment
 
@@ -96,9 +83,9 @@ https://royal-rags.netlify.app/
 
 ## Acknowledgments
 
->Credits to the resources and tutorials followed during the course modules
->will be added after project completion.
+> Credits to the resources and tutorials followed during the course modules
+> will be added after project completion.
 
 ---
 
->The README.md will be updated during and after the project development
+> The README.md will be updated during and after the project development
