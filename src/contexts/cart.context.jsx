@@ -11,13 +11,16 @@ const addCartItem = (cartItems, productToAdd) => {
 };
 
 const removeCartItem = (cartItems, itemIdToRemove) => {
-	const existingCartItem = cartItems.find((cartItem) => cartItem.id === itemIdToRemove);
+	const existingCartItem = cartItems.find((cartItem) => cartItem.id === itemIdToRemove.id);
 
-	if (existingCartItem && existingCartItem.quantity > 1) {
-		return cartItems.map((cartItem) => (cartItem.id === itemIdToRemove ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem));
-	} else {
-		return cartItems.filter((cartItem) => cartItem.id !== itemIdToRemove);
+	if (existingCartItem.quantity === 1) {
+		return cartItems.filter((cartItem) => cartItem.id !== itemIdToRemove.id);
 	}
+	return cartItems.map((cartItem) => (cartItem.id === itemIdToRemove.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem));
+};
+
+const clearCartItem = (cartItems, itemIdToClear) => {
+	return cartItems.filter((cartItem) => cartItem.id !== itemIdToClear.id);
 };
 
 export const CartContext = createContext({
@@ -25,6 +28,8 @@ export const CartContext = createContext({
 	toggleHidden: () => {},
 	cartItems: [],
 	addItemToCart: () => {},
+	removeItemFromCart: () => {},
+	clearItemFromCart: () => {},
 	cartCount: 0,
 });
 
@@ -41,11 +46,15 @@ export const CartProvider = ({ children }) => {
 		setCartItems(addCartItem(cartItems, productToAdd));
 	};
 
-	const removeItemFromCart = (itemId) => {
-		setCartItems((currentCartItems) => removeCartItem(currentCartItems, itemId));
+	const removeItemFromCart = (itemIdToRemove) => {
+		setCartItems((currentCartItems) => removeCartItem(currentCartItems, itemIdToRemove));
 	};
 
-	const value = { isCartOpen, setIsCartOpen, addItemToCart, removeItemFromCart, cartItems, cartCount };
+	const clearItemFromCart = (itemIdToClear) => {
+		setCartItems((currentCartItems) => clearCartItem(currentCartItems, itemIdToClear));
+	};
+
+	const value = { isCartOpen, setIsCartOpen, addItemToCart, removeItemFromCart, clearItemFromCart, cartItems, cartCount };
 
 	return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };
