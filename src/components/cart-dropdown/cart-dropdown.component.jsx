@@ -6,7 +6,7 @@ import CartItem from '../cart-item/cart-item.component';
 import './cart-dropdown.styles.scss';
 
 const CartDropdown = () => {
-	const { cartItems } = useContext(CartContext);
+	const { cartItems, cartTotal } = useContext(CartContext);
 	const navigate = useNavigate();
 
 	const goToCheckoutHandler = () => {
@@ -22,7 +22,7 @@ const CartDropdown = () => {
 					<span className='empty-cart-message'>Your cart is empty</span>
 				)}
 			</div>
-			{cartItems.length > 0 && <span className='total'>Total: 0</span>}
+			{cartItems.length > 0 && <span className='total'>Total: ${cartTotal}</span>}
 			<Button onClick={goToCheckoutHandler}>GO TO CHECKOUT</Button>
 		</div>
 	);
