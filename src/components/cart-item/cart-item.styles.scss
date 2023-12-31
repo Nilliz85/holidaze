@@ -4,9 +4,12 @@
 	height: 160px;
 	margin-bottom: 30px;
 	align-items: center;
+	border-bottom: 1px solid darkgrey;
+	padding-bottom: 5px;
 
 	img {
 		width: 30%;
+		height: 90%;
 	}
 
 	.item-details {
@@ -18,24 +21,37 @@
 		padding: 10px 40px;
 
 		.name {
-			font-size: 30px;
+			font-size: x-large;
+			font-weight: bold;
 		}
 		.price {
-			font-size: 30px;
+			display: flex;
+			font-size: x-large;
+		}
+
+		.decrement-item-button,
+		.increment-item-button {
+			cursor: pointer;
+			padding: 0px 5px;
+			margin: 0px 5px 0px 0px;
+			color: rgb(0, 0, 0);
+		}
+
+		.increment-item-button {
+			margin: 0px 20px 0px 5px;
 		}
 	}
 
-	.remove-button {
-		font-size: xx-large;
+	.clear-item-button {
+		font-size: x-large;
 		margin-left: auto;
 		margin: 15px;
-		padding: 5px 10px;
-		border: 1px solid black;
+		padding: 5px 15px;
 		cursor: pointer;
 		transition: transform 0.1s ease;
 	}
 
-	.remove-button:active {
+	.clear-item-button:active {
 		transform: scale(0.8);
 		opacity: 0.7;
 		background-color: black;
