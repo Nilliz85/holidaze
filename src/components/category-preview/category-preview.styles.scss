@@ -3,6 +3,18 @@
 	margin-left: 10%;
 	margin-bottom: 25px;
 	cursor: pointer;
+
+	&:hover {
+		transform: scale(1.2);
+		transform-origin: left;
+		border-bottom: 1px solid black;
+	}
+
+	&:active {
+		transform: scale(1);
+		color: darkgray;
+		border-bottom: 1px solid darkgray;
+	}
 }
 
 .category-preview-container {
