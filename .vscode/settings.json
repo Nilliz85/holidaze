@@ -1,7 +1,0 @@
-{
-	"prettier.singleAttributePerLine": true,
-	"html.completion.attributeDefaultValue": "singlequotes",
-	"html.format.wrapAttributes": "aligned-multiple",
-	"editor.wordWrap": "bounded",
-	"editor.wordWrapColumn": 160
-}

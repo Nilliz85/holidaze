@@ -1,14 +1,29 @@
 .navigation {
-	height: 70px;
+	height: 100px;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 25px;
+	margin-bottom: 80px;
 
 	.logo-container {
 		height: 100%;
 		width: 70px;
-		padding: 25px;
+		padding: 15px;
+
+		.logo {
+			margin-top: 10px;
+			height: 70px;
+			width: 400%;
+
+			&:hover {
+				transform: scale(1.2);
+			}
+
+			&:active {
+				transform: scale(1);
+				opacity: 0.5;
+			}
+		}
 	}
 
 	.nav-links-container {
@@ -19,8 +34,32 @@
 		justify-content: flex-end;
 
 		.nav-link {
-			padding: 10px 15px;
+			margin: 10px 15px;
+			font-size: xx-large;
 			cursor: pointer;
+			border-bottom: 2px solid transparent;
+
+			&:hover {
+				transform: scale(1.2);
+				border-bottom: 2px solid black;
+			}
+
+			&:active {
+				transform: scale(1);
+				color: darkgray;
+				border-bottom: 1px solid darkgray;
+			}
+		}
+
+		.cart-icon-container {
+			&:hover {
+				transform: scale(1.2);
+			}
+
+			&:active {
+				transform: scale(1);
+				opacity: 0.5;
+			}
 		}
 	}
 }
