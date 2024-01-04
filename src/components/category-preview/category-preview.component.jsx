@@ -6,8 +6,8 @@ import './category-preview.styles.scss';
 const CategoryPreview = ({ title, products }) => {
 	return (
 		<Fragment>
-			<h2>
-				<Link className='category-preview-title' to={title}>
+			<h2 className='category-preview-title'>
+				<Link className='category-preview-link' to={title}>
 					{title.toUpperCase()}
 				</Link>
 			</h2>
