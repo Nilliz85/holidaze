@@ -1,4 +1,7 @@
-.category-preview-title {
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const CategoryPreviewTitle = styled.h2`
 	font-size: xxx-large;
 	margin-left: 10%;
 	margin-bottom: 25px;
@@ -14,25 +17,25 @@
 	&:active {
 		transform: scale(1);
 	}
-}
+`;
 
-.category-preview-link {
+export const CategoryPreviewLink = styled(Link)`
 	&:active {
 		color: darkgray;
 		border-bottom: 2px solid darkgray;
 	}
-}
+`;
 
-.category-preview-container {
+export const CategoryPreviewContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	width: 80%;
 	margin: auto;
 	margin-bottom: 100px;
+`;
 
-	.preview {
-		display: grid;
-		grid-template-columns: repeat(4, 1fr);
-		column-gap: 30px;
-	}
-}
+export const Preview = styled.div`
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 30px;
+`;
