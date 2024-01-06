@@ -1,6 +1,17 @@
 import { useContext } from 'react';
 import { CartContext } from '../../contexts/cart.context';
-import './cart-item.styles.scss';
+import {
+	CartItemContainer,
+	StyledCartImage,
+	ItemDetails,
+	CartItemName,
+	CartItemPrice,
+	DecrementItemButton,
+	IncrementItemButton,
+	CartValue,
+	CartPriceValue,
+	ClearCartItemButton,
+} from './cart-item.styles';
 
 const CartItem = ({ cartItem }) => {
 	const { addItemToCart, removeItemFromCart, clearItemFromCart } = useContext(CartContext);
@@ -11,25 +22,19 @@ const CartItem = ({ cartItem }) => {
 	const clearItemFromCartHandler = () => clearItemFromCart(cartItem);
 
 	return (
-		<div className='cart-item-container'>
-			<img src={imageUrl} alt={`${name}`} />
-			<div className='item-details'>
-				<span className='name'>{name}</span>
-				<span className='price'>
-					<div className='decrement-item-button' onClick={removeItemFromCartHandler}>
-						&#10094;
-					</div>
-					<span className='value'> {quantity} </span>
-					<div className='increment-item-button' onClick={addItemFromCartHandler}>
-						&#10095;
-					</div>
-					<span className='price-value'> x ${price} </span>
-				</span>
-			</div>
-			<div className='clear-item-button' onClick={clearItemFromCartHandler}>
-				&#10005;
-			</div>
-		</div>
+		<CartItemContainer>
+			<StyledCartImage src={imageUrl} alt={`${name}`} />
+			<ItemDetails>
+				<CartItemName>{name}</CartItemName>
+				<CartItemPrice>
+					<DecrementItemButton onClick={removeItemFromCartHandler}>&#10094;</DecrementItemButton>
+					<CartValue> {quantity} </CartValue>
+					<IncrementItemButton onClick={addItemFromCartHandler}>&#10095;</IncrementItemButton>
+					<CartPriceValue> x ${price} </CartPriceValue>
+				</CartItemPrice>
+			</ItemDetails>
+			<ClearCartItemButton onClick={clearItemFromCartHandler}> &#10005; </ClearCartItemButton>
+		</CartItemContainer>
 	);
 };
 

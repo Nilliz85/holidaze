@@ -1,17 +1,18 @@
-import './directory-item.styles.scss';
+import { DirectoryItemContainer, BackgroundImage, DirectoryItemBody } from './directory-item.styles';
 
 const DirectoryItem = ({ category }) => {
 	const { imageUrl, title } = category;
 	const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
-	// const capitalizeTitle = (string) => string.toUpperCase();
+	const createPathFromTitle = (title) => `/shop/${title.toLowerCase()}`;
+
 	return (
-		<div className='directory-item-container'>
-			<div className='background-image' style={{ backgroundImage: `url(${imageUrl})` }} />
-			<div className='directory-item-body'>
+		<DirectoryItemContainer to={createPathFromTitle(title)}>
+			<BackgroundImage style={{ backgroundImage: `url(${imageUrl})` }} />
+			<DirectoryItemBody>
 				<h2>{capitalizeFirstLetter(title)}</h2>
 				<p>Shop Now</p>
-			</div>
-		</div>
+			</DirectoryItemBody>
+		</DirectoryItemContainer>
 	);
 };
 
