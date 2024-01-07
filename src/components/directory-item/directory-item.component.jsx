@@ -1,12 +1,13 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import { DirectoryItemContainer, BackgroundImage, DirectoryItemBody } from './directory-item.styles';
 
-const DirectoryItem = ({ category }) => {
-	const { imageUrl, title } = category;
+const DirectoryItem = ({ product }) => {
+	const { id, title, imageUrl } = product;
 	const capitalizeFirstLetter = (string) => string.charAt(0).toUpperCase() + string.slice(1);
-	const createPathFromTitle = (title) => `/shop/${title.toLowerCase()}`;
 
 	return (
-		<DirectoryItemContainer to={createPathFromTitle(title)}>
+		<DirectoryItemContainer to={`/products/${id}`} style={{ backgroundImage: `url(${imageUrl})` }}>
 			<BackgroundImage style={{ backgroundImage: `url(${imageUrl})` }} />
 			<DirectoryItemBody>
 				<h2>{capitalizeFirstLetter(title)}</h2>

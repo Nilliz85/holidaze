@@ -1,40 +1,55 @@
+import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
-
 import Directory from '../../components/directory/directory.component';
+import { API_URL } from '../../utils/api/api';
+import { TrendingTitle } from './home.component.styles';
 
 const Home = () => {
-	const categories = [
-		{
-			id: 1,
-			title: 'hats',
-			imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
-		},
-		{
-			id: 2,
-			title: 'jackets',
-			imageUrl: 'https://i.ibb.co/px2tCc3/jackets.png',
-		},
-		{
-			id: 3,
-			title: 'sneakers',
-			imageUrl: 'https://i.ibb.co/0jqHpnp/sneakers.png',
-		},
-		{
-			id: 4,
-			title: 'womens',
-			imageUrl: 'https://i.ibb.co/GCCdy8t/womens.png',
-		},
-		{
-			id: 5,
-			title: 'mens',
-			imageUrl: 'https://i.ibb.co/R70vBrQ/men.png',
-		},
-	];
+	const [products, setProducts] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [error, setError] = useState(null);
+
+	useEffect(() => {
+		const fetchProducts = async () => {
+			setIsLoading(true);
+			try {
+				const response = await fetch(`${API_URL}`);
+				if (!response.ok) {
+					throw new Error('Could not fetch products');
+				}
+				const data = await response.json();
+				setProducts(data);
+			} catch (err) {
+				setError(err.message);
+			} finally {
+				setIsLoading(false);
+			}
+		};
+
+		fetchProducts();
+	}, []);
+
+	const selectRandomProducts = (products, num = 5) => {
+		return products
+			.sort(() => 0.5 - Math.random())
+			.slice(0, num)
+			.map((product) => ({
+				id: product.id,
+				title: product.title,
+				imageUrl: product.imageUrl,
+			}));
+	};
+
+	const trendingProducts = selectRandomProducts(products);
+
+	if (isLoading) return <div>Loading...</div>;
+	if (error) return <div>Error: {error}</div>;
 
 	return (
 		<div>
+			<TrendingTitle>Trending Products</TrendingTitle>
 			<Outlet />
-			<Directory categories={categories} />
+			{trendingProducts.length > 0 && <Directory products={trendingProducts} />}
 		</div>
 	);
 };

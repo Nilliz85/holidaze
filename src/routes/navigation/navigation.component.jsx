@@ -17,7 +17,7 @@ const Navigation = () => {
 					<RoyalLogoImg />
 				</LogoContainer>
 				<NavLinks>
-					<NavLink to='/shop'>SHOP</NavLink>
+					<NavLink to='/products'>SHOP</NavLink>
 					{currentUser ? (
 						<NavLink as='span' onClick={signOutAuthUser}>
 							{' '}
