@@ -1,0 +1,56 @@
+.popular-venues-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 100px auto;
+  padding: 20px;
+  max-width: 2400px; 
+
+  .popular-venues-container {
+    display: flex;
+    justify-content: space-between;
+  
+
+    .popular-venue-card {
+      flex-basis: calc(25% - 20px); // Subtracting margin between cards
+      margin: 10px; 
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease-in-out;
+
+      &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .popular-venue-image {
+        width: 90%;
+        height: 200px; 
+        object-fit: cover; 
+      }
+
+      .popular-venue-content {
+        padding: 10px;
+        
+        .popular-venue-name {
+          font-size: 1.2rem;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+
+        .popular-venue-price {
+          font-size: 1rem;
+          color: #666;
+          margin-bottom: 10px;
+        }
+
+        .popular-venue-rating {
+          font-size: 0.9rem;
+          color: #f5a623; 
+        }
+      }
+    }
+  }
+}
