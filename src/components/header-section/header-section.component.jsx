@@ -3,24 +3,20 @@ import './header-section.styles.scss';
 
 const Header = () => {
   return (
-    <header className="header">
-      <nav className="navbar">
-        <ul className="nav-list">
-          <li className="nav-item">
-            <a href="/" className="nav-link">Home</a>
-          </li>
-          <li className="nav-item">
-            <a href="/about" className="nav-link">About</a>
-          </li>
-          <li className="nav-item">
-            <a href="/services" className="nav-link">Services</a>
-          </li>
-          <li className="nav-item">
-            <a href="/contact" className="nav-link">Contact</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+<header className="header">
+  <div className="logo">Holidaze</div>
+  <div className="search-bar">
+    <input type="search" placeholder="Search trips & destinations..." />
+    <div className='searchicon'><i className="fi fi-rr-search"></i></div>
+  </div>
+  <nav className="navigation">
+    <div className="nav-item"><i className="fi fi-rr-square-phone-hangup iconsize"></i> Contact</div>
+    <div className="nav-item"><i className="fi fi-rr-suitcase-alt iconsize"></i> My Trips</div>
+    <div className="nav-item carticon"><i className="fi fi-rr-shopping-cart"></i></div>
+    <button className="nav-button">Log In</button>
+  </nav>
+</header>
+
   );
 };
 

@@ -1,32 +1,98 @@
+@import url('https://cdn-uicons.flaticon.com/2.1.0/uicons-regular-rounded/css/uicons-regular-rounded.css');
+
 .header {
-  background: #333;
-  color: #fff;
-  padding: 0.5rem 1rem;
-}
-
-.navbar {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-}
+  justify-content: space-between;
+  padding: 40px 40px;
+  background-color: #fff; 
 
-.nav-list {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
+  .logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
 
-  .nav-item {
-    margin: 0 1rem;
-    
-    .nav-link {
-      color: #fff;
-      text-decoration: none;
-      padding: 0.5rem 1rem;
-      transition: background-color 0.3s;
+  .search-bar {
+    display: flex;
+    flex-grow: 1;
+    margin: auto; 
+    margin-left: 37%;
+    max-width: 20%;
+
+    input[type='search'] {
+      width: 100%;
+      padding: 10px;
+      margin-right: 10px; 
+      border: 3px solid #bebebe; 
+      border-radius: 10px; 
+      font-size: 1rem; 
+
+      &::placeholder {
+        color: #737373; 
+      }
+    }
+
+    .searchicon {
+      margin-top: 8px;
+      font-size: 1.8rem; 
+      color: #737373; 
 
       &:hover {
-        background-color: #555;
+        transform: scale(1.2);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
+    }
+  }
+
+  .navigation {
+    display: flex;
+    align-items: center;
+
+    .nav-item {
+      margin-right: 30px; 
+      font-size: 24px; 
+      cursor: pointer;
+      
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &:active {
+        transform: scale(1);
+        opacity: 0.7;
+      }
+
+      .iconsize {
+        font-size: 18px; 
+      }
+    }
+
+    .carticon {
+      margin-top: 8px;
+      font-size: 1.8rem;
+    }
+    
+    .nav-button {
+      margin-top: auto;
+      padding: 15px 30px;
+      background-color: #f9a825;
+      border: none;
+      border-radius: 20px; 
+      cursor: pointer;
+      font-weight: bold;
+      font-size: large;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+
+      &:active {
+        opacity: 0.7;
+        transform: scale(1);
       }
     }
   }
