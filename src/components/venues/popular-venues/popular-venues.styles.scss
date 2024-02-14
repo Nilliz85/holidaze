@@ -2,9 +2,13 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin: 100px auto;
+  margin: 150px auto;
   padding: 20px;
-  max-width: 2400px; 
+  max-width: 2560px; 
+
+  .section-header{
+    font-size: xx-large;
+  }
 
   .popular-venues-container {
     display: flex;
@@ -12,43 +16,62 @@
   
 
     .popular-venue-card {
-      flex-basis: calc(25% - 20px); // Subtracting margin between cards
-      margin: 10px; 
+      display: flex;
+      flex-direction: column;
+      flex-basis: calc(25% - 40px);
       border: 1px solid #ddd;
-      border-radius: 8px;
+      border-radius: 12px;
       overflow: hidden;
       background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
       transition: box-shadow 0.3s ease-in-out;
 
       &:hover {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
       }
 
       .popular-venue-image {
         width: 90%;
-        height: 200px; 
-        object-fit: cover; 
+        height: 450px; 
+        margin: auto;
+        margin-top: 5%;
+        object-fit: cover;
+        border-radius: 12px;
       }
 
       .popular-venue-content {
+        width: 90%;
+        margin: auto;
         padding: 10px;
         
         .popular-venue-name {
-          font-size: 1.2rem;
+          font-size: larger;
           font-weight: bold;
-          margin-bottom: 5px;
+          margin: 0px 0px 15px 0px;
+        }
+
+        .price-rating{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 2%;
         }
 
         .popular-venue-price {
-          font-size: 1rem;
-          color: #666;
+          font-size: large;
+          font-weight: bold;
+          color: #737373;
           margin-bottom: 10px;
         }
 
         .popular-venue-rating {
-          font-size: 0.9rem;
-          color: #f5a623; 
+          text-align: right;
+          color: #737373; 
+
+          .rating-text{
+            font-weight: bold;
+            margin-right: 5px;
+          }
         }
       }
     }
