@@ -31,18 +31,18 @@ const SearchForm = () => {
   return (
     <div className='location-search-container'>
       <div className="location-search-body">
-        <div>
-          <h3>Location</h3>
+        <div className='location-search-sections'>
+          <h3 className='location-search-titles'>Location</h3>
           <input
             type="text"
             className="location-search-input"
             id="locationInput"
             name="location"
-            placeholder="Trysil"
+            placeholder="Trysil..."
           />
         </div>
-        <div>
-          <h3>Check-In</h3>
+        <div className='location-search-sections'>
+          <h3 className='location-search-titles'>Check-In</h3>
           <input
             type="date"
             className='location-search-input'
@@ -52,8 +52,8 @@ const SearchForm = () => {
             onChange={handleArrivalDateChange}
           />
         </div>
-        <div>
-          <h3>Check-Out</h3>
+        <div className='location-search-sections'>
+          <h3 className='location-search-titles'>Check-Out</h3>
           <input
             type="date"
             className='location-search-input'
