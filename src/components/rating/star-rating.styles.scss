@@ -1,0 +1,15 @@
+.filled-star, .empty-star {
+  font-size: large;
+  margin-left: 2px;
+  display: inline-block;
+  position: relative;
+  top: 0.1em;
+}
+
+.filled-star {
+  color: #f5a623; 
+}
+
+.empty-star {
+  color: #ccc;
+}
