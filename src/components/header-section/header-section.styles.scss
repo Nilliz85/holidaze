@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 40px;
+  padding: 40px 50px;
   background-color: #fff; 
 
   .logo {
@@ -12,6 +12,14 @@
     font-weight: bold;
     cursor: pointer;
     color: #3e3e3e;
+
+    &:hover {
+      transform: scale(1.15);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
   }
 
   .search-bar {
