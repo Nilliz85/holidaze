@@ -1,28 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { API_BASE_URL, ENDPOINTS, HEADERS } from '../../utils/api/api-config';
-import { CartContext } from '../../contexts/cart.context';
 import { useParams } from 'react-router-dom';
 import StarRating from '../../components/rating/star-rating.component';
 import BookingCalendar from '../../components/calender/calendar.component';
 import { BUTTON_TYPE_CLASSES } from '../../components/button/button.component';
-import {
-	VenueDetailPageContainer,
-	VenueDetailContainer,
-	VenueTitle,
-	VenueImage,
-	VenueDescription,
-	PriceContainer,
-	PriceLabel,
-	VenuePrice,
-	// PriceBox,
-	// DiscountedPrice,
-	// OriginalPrice,
-	VenueRating,
-	// VenueReviews,
-	Review,
-	AddBookingButton,
-	VenueCardFooter,
-} from './venuedetails.styles';
+import { VenueDetailPageContainer, VenueDetailContainer, VenueTitle, VenueImage, VenueDescription, PriceContainer, PriceLabel, VenuePrice, VenueRating, VenueCardFooter } from './venuedetails.styles';
 import BookingForm from '../../utils/api/bookings/booking-form';
 
 const VenueDetail = () => {
