@@ -1,75 +1,102 @@
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const BackgroundImage = styled.div`
-	width: 100%;
-	height: 100%;
-	background-size: cover;
-	background-position: center;
-	transition: transform 0.6s ease-out;
+export const ImgNavButton = styled.button`
+position: absolute;
+top: 40%; 
+z-index: 10; 
+background: rgba(255, 255, 255, 0.7); 
+border: none;
+border-radius: 50%;
+width: 40px;
+height: 40px;
+display: none;
+
+
+&:hover {
+	transform: scale(1.3);
+	transform-origin: center;
+}
 `;
 
-export const DirectoryItemBody = styled.div`
-	height: 180px;
-	padding: 0 50px;
+export const PreviousImgButton = styled(ImgNavButton)`
+left: 10%;
+`;
+
+
+export const NextImgButton = styled(ImgNavButton)`
+right: 10%;
+`;
+
+
+export const VenueCard = styled.div`
+	position: relative;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	border: 2px solid black;
-	background-color: white;
-	opacity: 0.7;
-	position: absolute;
-
-	h2 {
-		font-weight: normal;
-		margin: 10px 25px 0;
-		font-size: xxx-large;
-		color: #4a4a4a;
-	}
-
-	p {
-		margin: 0.5em;
-		font-size: x-large;
-	}
+	flex-basis: calc(25% - 40px);
+	border: 1px solid #c7c7c7;
+	border-radius: 12px;
+	overflow: hidden;
+	max-width: 500px;
+	aspect-ratio: 4 / 5;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	transition: box-shadow 0.3s ease-in-out;
 
 	&:hover {
-		opacity: 0.9;
+		box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
 	}
+
+	&:hover ${ImgNavButton} {
+    display: block;
+  }
 `;
 
-export const DirectoryItemContainer = styled(Link)`
-	min-width: 30%;
-	height: 600px;
-	flex: 1 1 auto;
+
+
+
+
+export const VenueImage = styled.img`
+	width: 90%;
+	margin: auto;
+	margin-top: 5%;
+	object-fit: cover;
+	overflow: hidden;
+	border-radius: 12px;
+	aspect-ratio: 5 / 5;
+`;
+
+export const VenueContent = styled.div`
+	width: 90%;
+	margin: auto;
+	padding: 10px;
+`;
+
+export const VenueName = styled.h3`
+	font-size: larger;
+	font-weight: bold;
+	margin: 0px 0px 15px 0px;
+	color: #3e3e3e;
+`;
+
+export const PriceRating = styled.div`
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  margin: 5% 0 2%;
+`;
+
+export const VenuePrice = styled.p`
+	font-size: large;
+	font-weight: bold;
+	color: #737373;
+`;
+
+export const VenueRating = styled.div`
 	display: flex;
 	align-items: center;
-	justify-content: center;
-	border: 2px solid black;
-	margin: 0 7.5px 15px;
-	overflow: hidden;
+	color: #737373;
+`;
 
-	&.large {
-		height: 380px;
-	}
-
-	&:first-child {
-		margin-right: 7.5px;
-	}
-
-	&:last-child {
-		margin-left: 7.5px;
-	}
-
-	&:hover {
-		cursor: pointer;
-		${BackgroundImage} {
-			transform: scale(1.1);
-			transition: transform 4s cubic-bezier(0.25, 0.45, 0.45, 0.95);
-		}
-
-		${DirectoryItemBody} {
-			opacity: 0.9;
-		}
-	}
+export const RatingText = styled.span`
+	font-weight: bold;
+	margin-right: 5px;
 `;

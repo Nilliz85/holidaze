@@ -1,28 +1,26 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import { ReactComponent as RoyalLogo } from '../../assets/royal-rags-logo.svg';
+import { ReactComponent as HolidazeLogo } from '../../assets/holidaze-logo.svg';
 
 export const NavigationContainer = styled.div`
-	height: 100px;
+	height: 120px;
 	width: 100%;
 	display: flex;
 	justify-content: space-between;
-	margin-bottom: 80px;
+	align-items: center;
+	padding: 0 80px;
 `;
 
 export const LogoContainer = styled(Link)`
-	height: 100%;
-	width: 70px;
 	padding: 15px;
 `;
 
-export const RoyalLogoImg = styled(RoyalLogo)`
-	margin-top: 10px;
+export const HolidazeLogoImg = styled(HolidazeLogo)`
 	height: 70px;
-	width: 400%;
+	
 
 	&:hover {
-		transform: scale(1.15);
+		transform: scale(1.1);
 		transform-origin: center bottom;
 	}
 

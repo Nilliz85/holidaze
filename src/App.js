@@ -2,24 +2,25 @@ import Home from './routes/home/home.component';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './routes/navigation/navigation.component';
 import Authentication from './routes/authentication/authentication.component';
-import Shop from './routes/shop/shop.component';
-import ProductDetail from './routes/productdetails/productdetails.component';
-import ProductPage from './routes/product-page/product-page.component';
-import Checkout from './routes/checkout/checkout.component';
+import ExploreVenues from './routes/explore-venues/explore-venues.component';
+import VenueDetail from './routes/venuedetails/venuedetails.component';
+import VenuePage from './routes/venue-page/venue-page.component';
 
 const App = () => {
 	return (
 		<Routes>
 			<Route path='/' element={<Navigation />}>
 				<Route index element={<Home />} />
-				<Route path='shop/' element={<Shop />} />
-				<Route path='products/:productId' element={<ProductDetail />} />
-				<Route path='products/' element={<ProductPage />} />
+				<Route path='explore/' element={<ExploreVenues />} />
+				{/* <Route path='explore/' element={<VenuePage />} /> */}
+				<Route path='venues/:venueId' element={<VenueDetail />} />
+				<Route path='venues/' element={<VenuePage />} />
 				<Route path='auth' element={<Authentication />} />
-				<Route path='checkout' element={<Checkout />} />
 			</Route>
 		</Routes>
 	);
 };
 
 export default App;
+
+// "79b763da-5c3d-4cda-bb10-f4f4e1bdf9c6"

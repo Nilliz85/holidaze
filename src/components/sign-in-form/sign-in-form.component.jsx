@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import FormInput from '../form-input/form-input.component';
-import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
-import { signInWithGooglePopup, signInAuthUserWithEmailAndPassword } from '../../utils/firebase/firebase.utils';
+import Button from '../button/button.component';
 import { SignInContainer, ButtonContainer } from './sign-in-form.styles';
+// import { API_BASE_URL } from '../../utils/api/api-config';
+import { useAuth } from '../../utils/api/auth/login';
 
 const defaultFormFields = {
 	email: '',
@@ -12,39 +14,33 @@ const defaultFormFields = {
 const SignInForm = () => {
 	const [formFields, setFormFields] = useState(defaultFormFields);
 	const { email, password } = formFields;
+	const { login } = useAuth();
+	const navigate = useNavigate();
 
 	const resetFormFields = () => setFormFields(defaultFormFields);
-
-	const signInWithGoogle = async () => {
-		await signInWithGooglePopup();
-	};
 
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 
+		if (!(email.endsWith('@noroff.no') || email.endsWith('@stud.noroff.no'))) {
+			alert('You must use a Noroff email to log in.');
+			return;
+		}
+
 		try {
-			await signInAuthUserWithEmailAndPassword(email, password);
+			const userData = await login(email, password);
+			console.log('Login successful', userData);
+			// Navigate to the desired route after successful login
+			navigate('/explore');
 			resetFormFields();
 		} catch (error) {
-			switch (error.code) {
-				case 'auth/invalid-credential':
-					alert('Wrong email or password please try again.');
-					break;
-				case 'auth/user-not-found':
-					alert('No user associated with this email.');
-					break;
-				case 'auth/wrong-password':
-					alert('Incorrect password.');
-					break;
-				default:
-					console.log('error signing in user', error);
-			}
+			// Handle errors, such as incorrect credentials or fetch errors
+			alert('Login failed: ' + (error.message || 'An error occurred during login.'));
 		}
 	};
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
-
 		setFormFields({ ...formFields, [name]: value });
 	};
 
@@ -53,15 +49,21 @@ const SignInForm = () => {
 			<h2>Already have an account?</h2>
 			<span>Sign in with your email and password</span>
 			<form onSubmit={handleSubmit}>
-				<FormInput label='Email' type='email' required onChange={handleChange} name='email' value={email} />
+				<FormInput
+					label='Email'
+					type='email'
+					required
+					pattern='^[\w\-.]+@((stud\.)?noroff\.no)$'
+					title='Only Noroff domains (noroff.no and stud.noroff.no) are allowed to log in.'
+					onChange={handleChange}
+					name='email'
+					value={email}
+				/>
 
-				<FormInput label='Password' type='password' required onChange={handleChange} name='password' value={password} />
+				<FormInput label='Password' type='password' name='password' required autoComplete='current-password' onChange={handleChange} value={password} />
 
 				<ButtonContainer>
 					<Button type='submit'>Sign In</Button>
-					<Button buttonType={BUTTON_TYPE_CLASSES.google} type='button' onClick={signInWithGoogle}>
-						Google sign in
-					</Button>
 				</ButtonContainer>
 			</form>
 		</SignInContainer>

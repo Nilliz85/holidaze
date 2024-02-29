@@ -1,24 +1,47 @@
 import React, { useState, useEffect } from 'react';
-import { Outlet } from 'react-router-dom';
-import Directory from '../../components/directory/directory.component';
-import { API_URL } from '../../utils/api/api';
-import { TrendingTitle } from './home.component.styles';
+// import { Outlet } from 'react-router-dom';
+import HeroSection from '../../components/hero-section/hero-section.component';
+import PopularVenuesComponent from '../../components/popular-venues/popular-venues.component';
+import InformationSection from '../../components/information-section/information-section.component';
+import { fetchVenues } from '../../utils/api/venues/get-venues';
+import { HomeBody } from './home.styles';
 
 const Home = () => {
-	const [products, setProducts] = useState([]);
+	const [venues, setVenues] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		const fetchProducts = async () => {
+		const fetchAndSetVenues = async () => {
 			setIsLoading(true);
 			try {
-				const response = await fetch(`${API_URL}`);
-				if (!response.ok) {
-					throw new Error('Could not fetch products');
+				const data = await fetchVenues();
+				const fiveStarVenues = data.filter((venue) => venue.rating === 5);
+				const fourStarVenues = data.filter((venue) => venue.rating === 4);
+
+				// Use a Set to track unique venue names
+				const uniqueNames = new Set();
+
+				// Function to filter unique venues based on name
+				const addUniqueVenues = (venues) => {
+					return venues.filter((venue) => {
+						const isNameUnique = !uniqueNames.has(venue.name);
+						if (isNameUnique) {
+							uniqueNames.add(venue.name);
+							return true;
+						}
+						return false;
+					});
+				};
+
+				// Shuffle and take the first few unique 5-star and then 4-star venues if needed
+				let selectedVenues = addUniqueVenues(fiveStarVenues.sort(() => 0.5 - Math.random()));
+				if (selectedVenues.length < 4) {
+					let additionalVenues = addUniqueVenues(fourStarVenues.sort(() => 0.5 - Math.random()));
+					selectedVenues = [...selectedVenues, ...additionalVenues].slice(0, 4);
 				}
-				const data = await response.json();
-				setProducts(data);
+
+				setVenues(selectedVenues);
 			} catch (err) {
 				setError(err.message);
 			} finally {
@@ -26,31 +49,18 @@ const Home = () => {
 			}
 		};
 
-		fetchProducts();
+		fetchAndSetVenues();
 	}, []);
-
-	const selectRandomProducts = (products, num = 5) => {
-		return products
-			.sort(() => 0.5 - Math.random())
-			.slice(0, num)
-			.map((product) => ({
-				id: product.id,
-				title: product.title,
-				imageUrl: product.imageUrl,
-			}));
-	};
-
-	const trendingProducts = selectRandomProducts(products);
 
 	if (isLoading) return <div>Loading...</div>;
 	if (error) return <div>Error: {error}</div>;
 
 	return (
-		<div>
-			<TrendingTitle>Trending Products</TrendingTitle>
-			<Outlet />
-			{trendingProducts.length > 0 && <Directory products={trendingProducts} />}
-		</div>
+		<HomeBody>
+			<HeroSection />
+			<PopularVenuesComponent />
+			<InformationSection />
+		</HomeBody>
 	);
 };
 

@@ -5,5 +5,6 @@ export const AuthenticationContainer = styled.div`
 display: flex;
 justify-content: space-around;
 width: 1800px;
-margin: 60px auto;
+margin: 100px auto;
+min-height: 72vh;
 `;

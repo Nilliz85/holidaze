@@ -4,18 +4,37 @@
 	"icons": [
 		{
 			"src": "favicon.svg",
-			"sizes": "64x64 32x32 24x24 16x16",
 			"type": "image/svg"
 		},
 		{
-			"src": "logo196.png",
-			"type": "image/png",
-			"sizes": "196x170"
+			"src": "favicon.ico",
+			"sizes": "48x48",
+			"type": "image/ico"
 		},
 		{
-			"src": "logo512.png",
+			"src": "apple-touch-icon.png",
 			"type": "image/png",
-			"sizes": "512x444"
+			"sizes": "180x180"
+		},
+		{
+			"src": "favicon-16x16.png",
+			"type": "image/png",
+			"sizes": "16x16"
+		},
+		{
+			"src": "favicon-32x32.png",
+			"type": "image/png",
+			"sizes": "32x32"
+		},
+		{
+			"src": "favicon-192x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "favicon-512x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
 		}
 	],
 	"start_url": ".",

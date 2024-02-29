@@ -1,5 +1,5 @@
-<h1 align="center">eCom Store Project</h1>
-<h2 align="center">Royal Rags</h2>
+<h1 align="center">Project Exam 2</h1>
+<h2 align="center">Holidaze</h2>
 
 ## Table of Contents
 
@@ -31,12 +31,11 @@ As well as knowledge I have acquired from other sources like [Codecademy](https:
 
 ## Features
 
-- List of all products on the homepage
+- List of all venues on the explore page
 - Look-ahead search bar
-- Individual product pages
-- Cart functionality with item count display
-- Checkout and success page
-- Contact page with validation
+- filter function with several different filters
+- Individual venue details pages
+- Booking functionality
 
 ## Technologies Used
 
@@ -47,11 +46,11 @@ As well as knowledge I have acquired from other sources like [Codecademy](https:
 
 ## Pages
 
-- **Homepage**: Displays all products with a search bar.
-- **ProductPage**: Shows individual product details.
-- **CartPage**: Lists items in the cart.
-- **CheckoutPage**: Allows users to finalize their purchase.
-- **CheckoutSuccessPage**: Confirms the successful purchase.
+- **Homepage**: A Landing page with a Hero section and a popular venues section.
+- **ExploreVenuesPage**: Displays all products with a search bar..
+- **VenuePage**: Shows individual product details.
+- **ContactPage**: Contains a validated form for user inquiries.
+- **CreateVenuePage**: Contains a validated form for user inquiries.
 - **ContactPage**: Contains a validated form for user inquiries.
 
 ## Components
@@ -60,7 +59,7 @@ As well as knowledge I have acquired from other sources like [Codecademy](https:
 - `<NavBar>`: Navigation bar within the header.
 - `<CartIcon>`: Displays the current cart count and acts as a button.
 - `<Footer>`: Footer content for the site.
-- `<ProductCard>`: Represents each product on the homepage.
+- `<VenueCard>`: Represents each product on the homepage.
   > Component names are placeholders and subject to change. If changed this will be updated upon completion of the project.
 
 ## API Integration
@@ -79,7 +78,7 @@ As well as knowledge I have acquired from other sources like [Codecademy](https:
 
 ## Deployment
 
-https://royal-rags.netlify.app/
+> https://development--magenta-scone-f93b21.netlify.app/
 
 ## Acknowledgments
 

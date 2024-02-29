@@ -2,12 +2,11 @@
 	box-sizing: border-box;
 	transition-property: all;
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 150ms;
+	transition-duration: 200ms;
 }
 
 body {
 	margin: 0;
-	padding: 20px 40px;
 	// font-family: 'Open Sans', sans-serif;
 	font-family: 'Barlow Condensed', sans-serif;
 	-webkit-font-smoothing: antialiased;
