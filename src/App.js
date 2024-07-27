@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import HomeComponent from './routes/home/home.component';
-import './routes/home/home.styles.scss';
-
-const App = () => {
-	return (
-		<HomeComponent />
-=======
 import Home from './routes/home/home.component';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './routes/navigation/navigation.component';
@@ -29,13 +20,9 @@ const App = () => {
 				<Route path='auth/signup/' element={<AuthenticationSignUp />} />
 			</Route>
 		</Routes>
->>>>>>> development-styledcomponents
 	);
 };
 
 export default App;
-<<<<<<< HEAD
-=======
 
 // "79b763da-5c3d-4cda-bb10-f4f4e1bdf9c6"
->>>>>>> development-styledcomponents

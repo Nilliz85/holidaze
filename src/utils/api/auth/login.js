@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import { API_BASE_URL, ENDPOINTS } from '../api-config';
-
-export const fetchAuth = async () => {
-  const response = await fetch(`${API_BASE_URL}${ENDPOINTS.auth}`);
-};
-=======
 import { useContext } from 'react';
 import { UserContext } from '../../../contexts/user.context';
 import { API_BASE_URL, HEADERS, ENDPOINTS } from '../api-config';
@@ -44,4 +37,3 @@ export const useAuth = () => {
 		login,
 	};
 };
->>>>>>> development-styledcomponents
