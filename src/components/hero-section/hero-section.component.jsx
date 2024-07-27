@@ -13,9 +13,10 @@ const HeroSection = () => {
 =======
 import HeroSearch from './hero-search.component';
 import heroImage from '../../assets/hero-img.jpeg';
-import {HeroSectionContainer, HeroImage, HeroTitle, HeroText} from './hero-section.styles';
+import { HeroSectionContainer, HeroImage, HeroTitle, HeroText } from './hero-section.styles';
 
 const HeroSection = () => {
+<<<<<<< Updated upstream
   return (
     <HeroSectionContainer>
       <HeroImage src={heroImage} alt='Hero-Image' />
@@ -28,8 +29,25 @@ const HeroSection = () => {
 };
 
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 export default HeroSection;
 =======
 export default HeroSection;
 >>>>>>> development-styledcomponents
+=======
+export default HeroSection;
+=======
+	return (
+		<HeroSectionContainer>
+			<HeroImage src={heroImage} alt='Hero-Image' />
+			<HeroTitle></HeroTitle>
+			<HeroText></HeroText>
+			<HeroSearch />
+		</HeroSectionContainer>
+	);
+};
+
+export default HeroSection;
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes

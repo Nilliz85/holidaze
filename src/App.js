@@ -10,7 +10,8 @@ const App = () => {
 import Home from './routes/home/home.component';
 import { Routes, Route } from 'react-router-dom';
 import Navigation from './routes/navigation/navigation.component';
-import Authentication from './routes/authentication/authentication.component';
+import AuthenticationSignIn from './routes/authentication/authentication-signin.component';
+import AuthenticationSignUp from './routes/authentication/authentication-signup.component';
 import ExploreVenues from './routes/explore-venues/explore-venues.component';
 import VenueDetail from './routes/venuedetails/venuedetails.component';
 import VenuePage from './routes/venue-page/venue-page.component';
@@ -24,7 +25,8 @@ const App = () => {
 				{/* <Route path='explore/' element={<VenuePage />} /> */}
 				<Route path='venues/:venueId' element={<VenueDetail />} />
 				<Route path='venues/' element={<VenuePage />} />
-				<Route path='auth' element={<Authentication />} />
+				<Route path='auth/signin/' element={<AuthenticationSignIn />} />
+				<Route path='auth/signup/' element={<AuthenticationSignUp />} />
 			</Route>
 		</Routes>
 >>>>>>> development-styledcomponents

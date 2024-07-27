@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import FormInput from '../form-input/form-input.component';
 import Button from '../button/button.component';
-import { SignInContainer, ButtonContainer } from './sign-in-form.styles';
+import { SignInContainer, ButtonContainer, SignUpParagraph, StyledSignUpLink } from './sign-in-form.styles';
 // import { API_BASE_URL } from '../../utils/api/api-config';
 import { useAuth } from '../../utils/api/auth/login';
 
@@ -46,8 +46,8 @@ const SignInForm = () => {
 
 	return (
 		<SignInContainer>
-			<h2>Already have an account?</h2>
-			<span>Sign in with your email and password</span>
+			<h2>Sign in to your account?</h2>
+			<span>Use your email and password</span>
 			<form onSubmit={handleSubmit}>
 				<FormInput
 					label='Email'
@@ -61,6 +61,11 @@ const SignInForm = () => {
 				/>
 
 				<FormInput label='Password' type='password' name='password' required autoComplete='current-password' onChange={handleChange} value={password} />
+
+				<SignUpParagraph>
+					<span>Don't have an account? </span>
+					<StyledSignUpLink to='/auth/signup'>Sign up</StyledSignUpLink>
+				</SignUpParagraph>
 
 				<ButtonContainer>
 					<Button type='submit'>Sign In</Button>

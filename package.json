@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "name": "holidaze",
   "version": "0.1.0",
   "private": true,
@@ -38,4 +39,78 @@
       "last 1 safari version"
     ]
   }
+=======
+<<<<<<< Updated upstream
+	"name": "Holidaze",
+	"version": "1.0.0",
+=======
+	"name": "holidaze",
+	"version": "0.1.0",
+>>>>>>> Stashed changes
+	"private": true,
+	"dependencies": {
+		"@testing-library/jest-dom": "^5.17.0",
+		"@testing-library/react": "^13.4.0",
+		"@testing-library/user-event": "^13.5.0",
+		"axios": "^1.6.7",
+		"firebase": "^10.7.1",
+<<<<<<< Updated upstream
+=======
+		"html-webpack-plugin": "^5.6.0",
+		"lodash": "^4.17.21",
+>>>>>>> Stashed changes
+		"react": "^18.2.0",
+		"react-calendar": "^4.8.0",
+		"react-dom": "^18.2.0",
+		"react-router-dom": "^6.21.0",
+<<<<<<< Updated upstream
+		"react-scripts": "^5.0.1",
+		"sass": "^1.69.5",
+		"styled-components": "^6.1.6",
+=======
+		"react-scripts": "5.0.1",
+		"sass": "^1.70.0",
+		"styled-components": "^6.1.12",
+>>>>>>> Stashed changes
+		"web-vitals": "^2.1.4"
+	},
+	"scripts": {
+		"start": "react-scripts start",
+<<<<<<< Updated upstream
+		"build": "CI=false react-scripts build",
+=======
+		"build": "react-scripts build",
+>>>>>>> Stashed changes
+		"test": "react-scripts test",
+		"eject": "react-scripts eject"
+	},
+	"eslintConfig": {
+		"extends": [
+			"react-app",
+			"react-app/jest"
+<<<<<<< Updated upstream
+		],
+		"rules": {
+			"no-unused-vars": "off"
+		}
+	},
+	"browserslist": {
+		"venueion": [
+=======
+		]
+	},
+	"browserslist": {
+		"production": [
+>>>>>>> Stashed changes
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+>>>>>>> Stashed changes
 }

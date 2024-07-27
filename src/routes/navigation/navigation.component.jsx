@@ -24,7 +24,7 @@ const Navigation = () => {
 							Sign Out{' '}
 						</NavLink>
 					) : (
-						<NavLink to='/auth'>Log In</NavLink>
+						<NavLink to='auth/signin'>Log In</NavLink>
 					)}
 				</NavLinks>
 			</NavigationContainer>

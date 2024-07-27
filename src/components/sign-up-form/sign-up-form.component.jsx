@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../button/button.component';
 import FormInput from '../form-input/form-input.component';
-import { SignUpContainer } from './sign-up-form.styles';
+import { SignUpContainer, SignInParagraph, StyledSignInLink } from './sign-up-form.styles';
 import { register } from '../../utils/api/auth/register'; // Adjust the path to your register.js as necessary
 
 const defaultFormFields = {
@@ -50,13 +50,17 @@ const SignUpForm = () => {
 
 	return (
 		<SignUpContainer>
-			<h2>Don't have an account?</h2>
-			<span>Sign up with your email and password</span>
+			<h2>Create an account?</h2>
+			<span>Enter your name, email and password</span>
 			<form onSubmit={handleSubmit}>
 				<FormInput label='Name' type='text' required onChange={handleChange} name='name' value={name} />
 				<FormInput label='Email' type='email' required onChange={handleChange} name='email' value={email} pattern='^[\w.-]+@(stud\.)?noroff\.no$' title='Only Noroff email addresses are allowed.' />
 				<FormInput label='Password' type='password' required onChange={handleChange} name='password' value={password} />
 				<FormInput label='Confirm Password' type='password' required onChange={handleChange} name='confirmPassword' value={confirmPassword} />
+				<SignInParagraph>
+					<span>Already have an account? </span>
+					<StyledSignInLink to='/auth/signin'>Sign In</StyledSignInLink>
+				</SignInParagraph>
 				<Button type='submit'>Sign Up</Button>
 			</form>
 		</SignUpContainer>
