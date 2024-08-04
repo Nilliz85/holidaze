@@ -94,6 +94,7 @@ As well as knowledge I have acquired from other sources like [Codecademy](https:
 ## Latest Changes
 
 - Made the page at least slightly more responsive
+- Made it so that the Sign in form and the Sign up forms are now on seperate pages
 - Fixed broken booking functionality
 - fixed broken calendar so that both dates now "stick"
 - fixed calendar so that you can no longer book a date that has already passed
