@@ -1,32 +1,29 @@
 import styled from 'styled-components';
 
 export const ImgNavButton = styled.button`
-position: absolute;
-top: 40%; 
-z-index: 10; 
-background: rgba(255, 255, 255, 0.7); 
-border: none;
-border-radius: 50%;
-width: 40px;
-height: 40px;
-display: none;
+	position: absolute;
+	top: 40%;
+	z-index: 10;
+	background: rgba(255, 255, 255, 0.7);
+	border: none;
+	border-radius: 50%;
+	width: 40px;
+	height: 40px;
+	display: none;
 
-
-&:hover {
-	transform: scale(1.3);
-	transform-origin: center;
-}
+	&:hover {
+		transform: scale(1.3);
+		transform-origin: center;
+	}
 `;
 
 export const PreviousImgButton = styled(ImgNavButton)`
-left: 10%;
+	left: 10%;
 `;
-
 
 export const NextImgButton = styled(ImgNavButton)`
-right: 10%;
+	right: 10%;
 `;
-
 
 export const VenueCard = styled.div`
 	position: relative;
@@ -46,13 +43,9 @@ export const VenueCard = styled.div`
 	}
 
 	&:hover ${ImgNavButton} {
-    display: block;
-  }
+		display: block;
+	}
 `;
-
-
-
-
 
 export const VenueImage = styled.img`
 	width: 90%;
@@ -81,7 +74,7 @@ export const PriceRating = styled.div`
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-  margin: 5% 0 2%;
+	margin: 5% 0 2%;
 `;
 
 export const VenuePrice = styled.p`
@@ -98,5 +91,5 @@ export const VenueRating = styled.div`
 
 export const RatingText = styled.span`
 	font-weight: bold;
-	margin-right: 5px;
+	margin-right: 2px;
 `;

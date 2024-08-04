@@ -18,7 +18,6 @@ export const VenuesProvider = ({ children }) => {
 			try {
 				const fetchedVenues = await fetchVenues();
 				setVenues(fetchedVenues);
-				console.log('Fetched Venues:', fetchedVenues);
 			} catch (err) {
 				setError(err.message);
 			} finally {

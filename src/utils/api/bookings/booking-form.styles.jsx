@@ -8,13 +8,21 @@ export const BookingContainer = styled.div`
 	margin-top: 50px;
 `;
 
+export const BookingFormGroup = styled.div`
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 30px; /* Adjust spacing between label-input pairs */
+`;
+
 export const BookingLabel = styled.label`
-	margin: 30px;
+	margin-bottom: 10px; /* Adjust spacing between label and input */
 	font-size: xx-large;
 `;
 
 export const BookingInput = styled.input`
-	font-size: xx-large;
+	max-width: 350px;
+	margin: auto;
+	font-size: x-large;
 `;
 
 export const AddBookingButton = styled(Button)`

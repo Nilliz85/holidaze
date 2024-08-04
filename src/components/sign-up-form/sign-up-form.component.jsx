@@ -1,67 +1,79 @@
-import { useState } from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
 import Button from '../button/button.component';
-import FormInput from '../form-input/form-input.component';
-import { SignUpContainer, SignInParagraph, StyledSignInLink } from './sign-up-form.styles';
+import { SignUpContainer, SignInParagraph, StyledSignInLink, ButtonContainer, FormGroup } from './sign-up-form.styles';
 import { register } from '../../utils/api/auth/register'; // Adjust the path to your register.js as necessary
 
-const defaultFormFields = {
-	name: '',
-	email: '',
-	password: '',
-	confirmPassword: '',
-};
+const schema = yup.object().shape({
+	name: yup.string().required('Name is required'),
+	email: yup
+		.string()
+		.email('Invalid email format')
+		.matches(/^[\w\-.]+@((stud\.)?noroff\.no)$/, 'You must use a Noroff email to sign up.')
+		.required('Email is required'),
+	password: yup.string().required('Password is required'),
+	confirmPassword: yup
+		.string()
+		.oneOf([yup.ref('password'), null], 'Passwords must match')
+		.required('Confirm Password is required'),
+});
 
 const SignUpForm = () => {
-	const [formFields, setFormFields] = useState(defaultFormFields);
-	const { name, email, password, confirmPassword } = formFields;
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		reset,
+	} = useForm({
+		resolver: yupResolver(schema),
+	});
 	const navigate = useNavigate();
 
-	const resetFormFields = () => setFormFields(defaultFormFields);
-
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-
-		if (password !== confirmPassword) {
-			alert('Passwords do not match');
-			return;
-		}
-
-		if (!email.endsWith('@noroff.no') && !email.endsWith('@stud.noroff.no')) {
-			alert('Only Noroff email addresses are allowed.');
-			return;
-		}
-
+	const onSubmit = async (data) => {
 		try {
-			const data = await register(name, email, password);
-			console.log('Registration successful', data);
-			resetFormFields();
+			const response = await register(data.name, data.email, data.password);
+			reset();
 			navigate('/explore');
 		} catch (error) {
 			alert(`Registration failed: ${error.message}`);
-			console.error('Registration request failed', error);
 		}
-	};
-
-	const handleChange = (event) => {
-		const { name, value } = event.target;
-		setFormFields({ ...formFields, [name]: value });
 	};
 
 	return (
 		<SignUpContainer>
-			<h2>Create an account?</h2>
-			<span>Enter your name, email and password</span>
-			<form onSubmit={handleSubmit}>
-				<FormInput label='Name' type='text' required onChange={handleChange} name='name' value={name} />
-				<FormInput label='Email' type='email' required onChange={handleChange} name='email' value={email} pattern='^[\w.-]+@(stud\.)?noroff\.no$' title='Only Noroff email addresses are allowed.' />
-				<FormInput label='Password' type='password' required onChange={handleChange} name='password' value={password} />
-				<FormInput label='Confirm Password' type='password' required onChange={handleChange} name='confirmPassword' value={confirmPassword} />
+			<h2>Create an account</h2>
+			<span>Enter your name, email, and password</span>
+			<form onSubmit={handleSubmit(onSubmit)}>
+				<FormGroup>
+					<label>Name</label>
+					<input type='text' {...register('name')} required />
+					{errors.name && <span>{errors.name.message}</span>}
+				</FormGroup>
+				<FormGroup>
+					<label>Email</label>
+					<input type='email' {...register('email')} required pattern='^[\w.-]+@(stud\.)?noroff\.no$' title='Only Noroff email addresses are allowed.' />
+					{errors.email && <span>{errors.email.message}</span>}
+				</FormGroup>
+				<FormGroup>
+					<label>Password</label>
+					<input type='password' {...register('password')} required />
+					{errors.password && <span>{errors.password.message}</span>}
+				</FormGroup>
+				<FormGroup>
+					<label>Confirm Password</label>
+					<input type='password' {...register('confirmPassword')} required />
+					{errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
+				</FormGroup>
 				<SignInParagraph>
 					<span>Already have an account? </span>
 					<StyledSignInLink to='/auth/signin'>Sign In</StyledSignInLink>
 				</SignInParagraph>
-				<Button type='submit'>Sign Up</Button>
+				<ButtonContainer>
+					<Button type='submit'>Sign Up</Button>
+				</ButtonContainer>
 			</form>
 		</SignUpContainer>
 	);

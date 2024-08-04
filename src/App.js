@@ -6,20 +6,24 @@ import AuthenticationSignUp from './routes/authentication/authentication-signup.
 import ExploreVenues from './routes/explore-venues/explore-venues.component';
 import VenueDetail from './routes/venuedetails/venuedetails.component';
 import VenuePage from './routes/venue-page/venue-page.component';
+import UserProfile from './routes/user-profile/user-profile.component';
+import { GlobalStyle } from './global.styles';
 
 const App = () => {
 	return (
-		<Routes>
-			<Route path='/' element={<Navigation />}>
-				<Route index element={<Home />} />
-				<Route path='explore/' element={<ExploreVenues />} />
-				{/* <Route path='explore/' element={<VenuePage />} /> */}
-				<Route path='venues/:venueId' element={<VenueDetail />} />
-				<Route path='venues/' element={<VenuePage />} />
-				<Route path='auth/signin/' element={<AuthenticationSignIn />} />
-				<Route path='auth/signup/' element={<AuthenticationSignUp />} />
-			</Route>
-		</Routes>
+		<>
+			<GlobalStyle />
+			<Routes>
+				<Route path='/' element={<Navigation />}>
+					<Route index element={<Home />} />
+					<Route path='explore/' element={<ExploreVenues />} />
+					<Route path='venues/:venueId' element={<VenueDetail />} />
+					<Route path='auth/signin/' element={<AuthenticationSignIn />} />
+					<Route path='auth/signup/' element={<AuthenticationSignUp />} />
+					<Route path='profile/:username' element={<UserProfile />} /> {/* Updated Route */}
+				</Route>
+			</Routes>
+		</>
 	);
 };
 

@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const DirectoryContainer = styled.div`
+const shouldForwardProp = (prop) => !['numColumns'].includes(prop);
+
+export const DirectoryContainer = styled('div').withConfig({
+	shouldForwardProp,
+})`
 	width: 100%;
 	margin: auto;
 	display: grid;

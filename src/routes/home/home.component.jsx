@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { Outlet } from 'react-router-dom';
 import HeroSection from '../../components/hero-section/hero-section.component';
 import PopularVenuesComponent from '../../components/popular-venues/popular-venues.component';
 import InformationSection from '../../components/information-section/information-section.component';

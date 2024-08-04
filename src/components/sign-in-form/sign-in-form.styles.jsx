@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 export const SignInContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	width: 570px;
+	width: 90%; /* Changed to 90% for responsiveness */
+	max-width: 570px; /* Added a max-width */
+	justify-content: center; /* Center align the form */
+	margin: 0 auto; /* Center align the container */
 
 	h2 {
 		margin: 10px 0;
@@ -14,6 +17,16 @@ export const SignInContainer = styled.div`
 	span {
 		font-size: x-large;
 	}
+
+	@media (max-width: 768px) {
+		h2 {
+			font-size: large; /* Adjust font-size for smaller screens */
+		}
+
+		span {
+			font-size: medium; /* Adjust font-size for smaller screens */
+		}
+	}
 `;
 
 export const SignUpParagraph = styled.p`
@@ -22,6 +35,12 @@ export const SignUpParagraph = styled.p`
 
 	span {
 		font-size: x-large;
+	}
+
+	@media (max-width: 768px) {
+		span {
+			font-size: medium; /* Adjust font-size for smaller screens */
+		}
 	}
 `;
 
@@ -38,9 +57,37 @@ export const StyledSignUpLink = styled(Link)`
 		color: darkgray;
 		border-bottom: 2px solid darkgray;
 	}
+
+	@media (max-width: 768px) {
+		font-size: medium; /* Adjust font-size for smaller screens */
+	}
 `;
 
 export const ButtonContainer = styled.div`
 	display: flex;
 	justify-content: space-around;
+
+	@media (max-width: 768px) {
+		flex-direction: column; /* Stack buttons vertically on smaller screens */
+		align-items: center; /* Center align the buttons */
+	}
+`;
+
+export const FormGroup = styled.div`
+	margin-bottom: 15px;
+
+	label {
+		display: block;
+		margin-bottom: 5px;
+		font-size: large;
+	}
+
+	input {
+		width: 100%;
+		padding: 10px;
+		font-size: large;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		box-sizing: border-box;
+	}
 `;

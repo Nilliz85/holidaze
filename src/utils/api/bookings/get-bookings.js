@@ -1,8 +1,7 @@
-import { API_BASE_URL, HEADERS, ENDPOINTS } from 'path/to/api-config';
+import { API_BASE_URL, HEADERS, ENDPOINTS } from '../api-config';
 
 const fetchVenueBookings = async (venueId) => {
 	const headers = HEADERS();
-
 	const url = `${API_BASE_URL}${ENDPOINTS.venues.bookingsByVenue(venueId)}`;
 
 	const response = await fetch(url, {

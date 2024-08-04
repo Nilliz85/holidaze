@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { API_BASE_URL, ENDPOINTS, HEADERS } from '../../utils/api/api-config';
-import { CartContext } from '../../contexts/cart.context';
+// import { CartContext } from '../../contexts/cart.context';
 import { useParams } from 'react-router-dom';
 import StarRating from '../../components/rating/star-rating.component';
-import BookingCalendar from '../../components/calender/calendar.component';
-import { BUTTON_TYPE_CLASSES } from '../../components/button/button.component';
+import BookingCalendar from '../../components/calendar/calendar.component';
+// import { BUTTON_TYPE_CLASSES } from '../../components/button/button.component';
 import {
 	VenueDetailPageContainer,
 	VenueDetailContainer,
@@ -117,8 +117,7 @@ const VenueDetail = () => {
 					<VenueDescription>{venue.description}</VenueDescription>
 				</VenueCardFooter>
 			</VenueDetailContainer>
-			<BookingCalendar availableDates={availableDates} onDateSelect={handleDateSelect} />
-			<BookingForm venueId={venueId} maxGuests={maxGuests} fromDate={fromDate} toDate={toDate} />
+			<BookingForm venueId={venueId} maxGuests={maxGuests} availableDates={availableDates} />
 		</VenueDetailPageContainer>
 	);
 };

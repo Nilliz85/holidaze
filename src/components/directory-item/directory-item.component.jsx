@@ -65,7 +65,7 @@ const DirectoryItem = ({ venue }) => {
 					<PriceRating>
 						<VenuePrice>Price: ${price}</VenuePrice>
 						<VenueRating>
-							<RatingText>Rating:</RatingText>
+							<RatingText></RatingText>
 							<StarRating rating={rating} />
 						</VenueRating>
 					</PriceRating>
