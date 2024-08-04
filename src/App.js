@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import Home from './routes/home/home.component';
+import { Routes, Route } from 'react-router-dom';
+import Navigation from './routes/navigation/navigation.component';
+import AuthenticationSignIn from './routes/authentication/authentication-signin.component';
+import AuthenticationSignUp from './routes/authentication/authentication-signup.component';
+import ExploreVenues from './routes/explore-venues/explore-venues.component';
+import VenueDetail from './routes/venuedetails/venuedetails.component';
+import VenuePage from './routes/venue-page/venue-page.component';
+import UserProfile from './routes/user-profile/user-profile.component';
+import { GlobalStyle } from './global.styles';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+	return (
+		<>
+			<GlobalStyle />
+			<Routes>
+				<Route path='/' element={<Navigation />}>
+					<Route index element={<Home />} />
+					<Route path='explore/' element={<ExploreVenues />} />
+					<Route path='venues/:venueId' element={<VenueDetail />} />
+					<Route path='auth/signin/' element={<AuthenticationSignIn />} />
+					<Route path='auth/signup/' element={<AuthenticationSignUp />} />
+					<Route path='profile/:username' element={<UserProfile />} /> {/* Updated Route */}
+				</Route>
+			</Routes>
+		</>
+	);
+};
 
 export default App;
+
+// "79b763da-5c3d-4cda-bb10-f4f4e1bdf9c6"

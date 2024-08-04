@@ -1,16 +1,17 @@
 import React from 'react';
-import heroImage from '../../assets/placeholders/hero-placeholder.jpeg';
-import SearchForm from '../searchform/searchform.component';
-import './hero-section.styles.scss';
+// import HeroSearch from './hero-search.component';
+import heroImage from '../../assets/hero-img.jpeg';
+import { HeroSectionContainer, HeroImage, HeroTitle, HeroText } from './hero-section.styles';
 
 const HeroSection = () => {
-  return (
-    <div className='hero-section'>
-      <img className='hero-image' src={heroImage} alt='hero' />
-      <SearchForm />
-    </div>
-  );
+	return (
+		<HeroSectionContainer>
+			<HeroImage src={heroImage} alt='Hero-Image' />
+			<HeroTitle></HeroTitle>
+			<HeroText></HeroText>
+			{/* <HeroSearch /> */}
+		</HeroSectionContainer>
+	);
 };
-
 
 export default HeroSection;

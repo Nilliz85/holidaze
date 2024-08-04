@@ -1,0 +1,31 @@
+.information-section {
+  display: flex;
+  max-width: 2560px;
+  margin: 300px auto;
+  justify-content: space-around;
+  align-items: center;
+  padding: 50px 20px;
+
+  
+  .info-item {
+    text-align: center;
+    width: 30%; 
+    padding: 10px;
+    
+    .info-icon {
+      width: 100px; 
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    h3 {
+      margin: 10px 0;
+      font-size: x-large;
+    }
+
+    p {
+      font-size: large; 
+      color: #666; 
+    }
+  }
+}
