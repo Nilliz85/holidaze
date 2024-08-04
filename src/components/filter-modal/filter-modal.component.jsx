@@ -16,7 +16,6 @@ import {
 	PriceInputLabel,
 	MinMaxLabel,
 	AmenitiesContainer,
-	StyledInput,
 	StyledSelect,
 	FilterByRatingContainer,
 } from './filter-modal.styling';

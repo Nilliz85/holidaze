@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useState } from 'react';
 import { VenuesContext } from '../../contexts/venues.context';
 import Directory from '../../components/directory/directory.component';
 import SearchBox from '../../components/search-box/search-box.component';

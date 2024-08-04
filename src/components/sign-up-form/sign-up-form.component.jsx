@@ -5,7 +5,6 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import Button from '../button/button.component';
 import { SignUpContainer, SignInParagraph, StyledSignInLink, ButtonContainer, FormGroup } from './sign-up-form.styles';
-import { register } from '../../utils/api/auth/register'; // Adjust the path to your register.js as necessary
 
 const schema = yup.object().shape({
 	name: yup.string().required('Name is required'),

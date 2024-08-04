@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import { VenuePageContainer, VenueCardContainer, VenueImage, AddToCartButton, VenueCardFooter, VenueTitle, PriceContainer, PriceLabel, PriceBox } from './venue-card.styles';
 

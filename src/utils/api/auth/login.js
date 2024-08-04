@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { UserContext } from '../../../contexts/user.context';
-import { API_BASE_URL, HEADERS, ENDPOINTS } from '../api-config';
+import { API_BASE_URL, ENDPOINTS } from '../api-config';
 
 export const useAuth = () => {
 	const { setCurrentUser } = useContext(UserContext);

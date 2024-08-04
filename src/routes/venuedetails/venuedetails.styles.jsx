@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Button from '../../components/button/button.component';
 
 export const VenueDetailPageContainer = styled.div`
 	text-align: center;

@@ -40,6 +40,7 @@ const Home = () => {
 					selectedVenues = [...selectedVenues, ...additionalVenues].slice(0, 4);
 				}
 
+				venues.sort((a, b) => b.rating - a.rating);
 				setVenues(selectedVenues);
 			} catch (err) {
 				setError(err.message);

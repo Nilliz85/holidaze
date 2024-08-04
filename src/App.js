@@ -5,7 +5,6 @@ import AuthenticationSignIn from './routes/authentication/authentication-signin.
 import AuthenticationSignUp from './routes/authentication/authentication-signup.component';
 import ExploreVenues from './routes/explore-venues/explore-venues.component';
 import VenueDetail from './routes/venuedetails/venuedetails.component';
-import VenuePage from './routes/venue-page/venue-page.component';
 import UserProfile from './routes/user-profile/user-profile.component';
 import { GlobalStyle } from './global.styles';
 
@@ -20,7 +19,7 @@ const App = () => {
 					<Route path='venues/:venueId' element={<VenueDetail />} />
 					<Route path='auth/signin/' element={<AuthenticationSignIn />} />
 					<Route path='auth/signup/' element={<AuthenticationSignUp />} />
-					<Route path='profile/:username' element={<UserProfile />} /> {/* Updated Route */}
+					<Route path='profile/:username' element={<UserProfile />} />
 				</Route>
 			</Routes>
 		</>
@@ -28,5 +27,3 @@ const App = () => {
 };
 
 export default App;
-
-// "79b763da-5c3d-4cda-bb10-f4f4e1bdf9c6"

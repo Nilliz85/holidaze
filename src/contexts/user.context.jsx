@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export const UserContext = createContext({
@@ -21,12 +21,12 @@ export const UserProvider = ({ children }) => {
 		localStorage.setItem('token', token);
 	}, [currentUser, token]);
 
-	const resetInactivityTimer = () => {
+	const resetInactivityTimer = useCallback(() => {
 		clearTimeout(inactivityTimer);
 		if (currentUser && token) {
 			inactivityTimer = setTimeout(logoutDueToInactivity, INACTIVITY_TIME_LIMIT);
 		}
-	};
+	}, [currentUser, token]); // Dependencies array ensures useCallback only changes when these values change
 
 	const logoutDueToInactivity = () => {
 		alert('You have been logged out due to inactivity.');
@@ -47,7 +47,7 @@ export const UserProvider = ({ children }) => {
 			events.forEach((event) => window.removeEventListener(event, resetInactivityTimer));
 			clearTimeout(inactivityTimer);
 		};
-	}, [currentUser, token]);
+	}, [resetInactivityTimer]); // Now correctly includes resetInactivityTimer in dependencies
 
 	const value = {
 		currentUser,
